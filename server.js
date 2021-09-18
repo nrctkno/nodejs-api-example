@@ -1,17 +1,21 @@
 const http = require('http');
 const fs = require('fs');
-const hostname='localhost';
-const port=3000;
+const moment = require('moment');
+const hostname = 'localhost';
+const port = 3000;
 
 const server = http.createServer((req, res) => {
-    //console.log(req.method, req.url, 'aaa')
+
+    console.log(moment().format('YYYY-MM-DD HH:mm:ss'), req.method, req.url)
+
     res.setHeader('Content-Type', 'text/html');
-    fs.readFile('view/index.html', (err,data) => {
-        if(err) {
-            console.log(err)
+    fs.readFile('view/index.html', (err, data) => {
+        if (err) {
+            console.log(err);
+            res.statusCode = 500;
             res.end()
         } else {
-            res.statusCode=200;
+            res.statusCode = 200;
             res.end(data);
         }
     })

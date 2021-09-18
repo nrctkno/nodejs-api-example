@@ -5,6 +5,24 @@
 https://www.udemy.com/course/create-nodejs-app-with-express-socket-io-and-mongodb/
 
 
+## Installing node
+
+### Without NVM
+
+Instructions at https://github.com/nodesource/distributions#installation-instructions
+
+```
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+### Using NVM
+```
+nvm install 16.9.1
+nvm use 16.9.1
+```
+
+
 ## Initial notes
 
 `global` is equivalent to `window` object.
@@ -153,3 +171,32 @@ const server = http.createServer((req, res) => {
 
 ...
 ```
+
+### Redirecting
+
+```js
+res.statusCode=301;
+res.setHeader('Location', '/home'); //of course you can also redirect to external pages.
+```
+
+## Managing packages
+
+### Create the packages file
+```
+npm init
+```
+
+You can skip the questions by adding the `--yes` option.
+
+###Add package:
+
+Search for a package on https://www.npmjs.com/ and install it by running:
+
+```
+npm i package_name
+```
+
+
+## Express
+
+Is a router.
